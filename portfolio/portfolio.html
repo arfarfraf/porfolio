@@ -1,0 +1,2539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamby Belotindos - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="Css/css/style.css">
+    <link rel="stylesheet" href="Css/css/mode.css">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        /* From Uiverse.io by gharsh11032000 */
+        .card {
+            width: 100%;
+            height: 100%;
+            background-color: #4158D0;
+            background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+            border-radius: 8px;
+            color: white;
+            overflow: hidden;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            cursor: pointer;
+        }
+
+        .card-content {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100%;
+        }
+
+        .card-content .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: inherit;
+            text-transform: uppercase;
+        }
+
+        .card-content .card-para {
+            color: inherit;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        .card:hover {
+            transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            z-index: 1;
+        }
+
+        .card:hover:before {
+            transform: translateX(-100%);
+        }
+
+        .card:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            z-index: 1;
+        }
+
+        .card:hover:after {
+            transform: translateX(100%);
+        }
+
+        /* From Uiverse.io by chase2k25 */
+        .dial {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .dial .button {
+            width: 80px;
+            height: 40px;
+            background: #111;
+            color: #fff;
+            border: 2px solid #0f0;
+            box-shadow: 0 5px #0a0, 0 10px #050;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+        }
+
+        .dial .inputBox {
+            display: none;
+        }
+
+        /* Apply styles only when input is checked */
+        .dial .inputBox:checked + .button {
+            background: rgb(86, 235, 0);
+            color: #000;
+            box-shadow: 0 5px rgb(5, 153, 0), 0 10px rgb(17, 102, 0);
+            transform: translateY(2px);
+            border-color: rgb(144, 255, 144);
+        }
+
+        /* OFF button styling */
+        .dial .off .inputBox:checked + .button {
+            background: red;
+            box-shadow: 0 5px #900, 0 10px #600;
+            color: white;
+            border-color: rgb(255, 138, 138);
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* From Uiverse.io by Gaurav-WebDev */
+        .hover-card-demo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .button {
+            height: 50px;
+            width: 150px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .button:hover {
+            box-shadow: .5px .5px 150px #252525;
+        }
+
+        .type1::after {
+            content: "Passionate about clean UI";
+            height: 50px;
+            width: 150px;
+            background-color: #008080;
+            color: #fff;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            transform: translateY(50px);
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease-in-out;
+            padding: 5px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .type1::before {
+            content: "Hover Me";
+            height: 50px;
+            width: 150px;
+            background-color: #fff;
+            color: #008080;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            transform: translateY(0px) scale(1.2);
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .type1:hover::after {
+            transform: translateY(0) scale(1.2);
+        }
+
+        .type1:hover::before {
+            transform: translateY(-50px) scale(0) rotate(120deg);
+        }
+
+        /* From Uiverse.io by eslam-hany */
+        .button-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 120%;
+            height: 120%;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.15) translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button .icon {
+            width: 32px;
+            height: 32px;
+            color: white;
+            z-index: 1;
+            position: relative;
+            transition: all 0.4s;
+        }
+
+        .cta-button:hover .icon {
+            color: #667eea;
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .cta-button:active {
+            transform: scale(1.05);
+        }
+
+        .nav-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-button::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .nav-button:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button .icon {
+            width: 24px;
+            height: 24px;
+            color: white;
+            z-index: 1;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .nav-button:hover .icon {
+            color: #667eea;
+            transform: scale(1.1);
+        }
+
+        .nav-button:active {
+            transform: scale(0.95);
+        }
+
+        .navbar-button {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .navbar-button::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .navbar-button:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .navbar-button:hover {
+            transform: translateY(-3px) scale(1.08);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
+        }
+
+        .navbar-button .icon {
+            width: 20px;
+            height: 20px;
+            color: white;
+            z-index: 1;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .navbar-button:hover .icon {
+            transform: scale(1.15);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .navbar-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        /* From Uiverse.io by ZacharyCrespin */
+        .shadow-send-button {
+            transition: all 0.5s;
+            font-size: 17px;
+            padding: 1ch 2ch;
+            background-color: white;
+            color: #000;
+            cursor: pointer;
+            border: none;
+            border-radius: 2px;
+            box-shadow:
+                2px 2px 0px hsl(0, 0%, 90%),
+                4px 4px 0px hsl(0, 0%, 80%),
+                6px 6px 0px hsl(0, 0%, 70%),
+                8px 8px 0px hsl(0, 0%, 60%),
+                10px 10px 0px hsl(0, 0%, 50%),
+                12px 12px 0px hsl(0, 0%, 40%),
+                14px 14px 0px hsl(0, 0%, 30%),
+                16px 16px 0px hsl(0, 0%, 20%),
+                18px 18px 0px hsl(0, 0%, 10%);
+            font-weight: 600;
+        }
+
+        .shadow-send-button:hover {
+            background-color: hsl(0, 0%, 50%);
+            color: #fff;
+            box-shadow: none;
+        }
+
+        /* From Uiverse.io by cohencoo */
+        .custom-input {
+            border-radius: 10px;
+            outline: 2px solid #FEBF00;
+            border: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #e2e2e2;
+            outline-offset: 3px;
+            padding: 10px 1rem;
+            transition: 0.25s;
+        }
+
+        .custom-input:focus {
+            outline-offset: 5px;
+            background-color: #fff;
+        }
+
+        /* From Uiverse.io by glisovic01 */
+        .login-box {
+            width: 400px;
+            padding: 40px;
+            background: rgba(0,0,0,.9);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0,0,0,.6);
+            border-radius: 10px;
+        }
+
+        .login-box .user-box input:focus ~ label,
+        .login-box .user-box input:valid ~ label {
+            top: -20px;
+            left: 0;
+            color: #fff;
+            font-size: 12px;
+        }
+
+        .login-box a:hover {
+            background: #fff;
+            color: #272727;
+            border-radius: 5px;
+        }
+
+        @keyframes btn-anim1 {
+            0% {
+                left: -100%;
+            }
+            50%, 100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes btn-anim2 {
+            0% {
+                top: -100%;
+            }
+            50%, 100% {
+                top: 100%;
+            }
+        }
+
+        @keyframes btn-anim3 {
+            0% {
+                right: -100%;
+            }
+            50%, 100% {
+                right: 100%;
+            }
+        }
+
+        @keyframes btn-anim4 {
+            0% {
+                bottom: -100%;
+            }
+            50%, 100% {
+                bottom: 100%;
+            }
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Animation Classes */
+        .animate-fadeInUp {
+            animation: fadeInUp 1.5s ease-out forwards;
+        }
+
+        .animate-fadeInDown {
+            animation: fadeInDown 1.5s ease-out forwards;
+        }
+
+        .animate-fadeInLeft {
+            animation: fadeInLeft 1.5s ease-out forwards;
+        }
+
+        .animate-fadeInRight {
+            animation: fadeInRight 1.5s ease-out forwards;
+        }
+
+        .animate-scaleIn {
+            animation: scaleIn 1.2s ease-out forwards;
+        }
+
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .animate-pulse {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* Delay Classes */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-700 { animation-delay: 0.7s; }
+        .delay-800 { animation-delay: 0.8s; }
+
+        /* Initial state for animated elements */
+        .animate-fadeInUp,
+        .animate-fadeInDown,
+        .animate-fadeInLeft,
+        .animate-fadeInRight,
+        .animate-scaleIn {
+            opacity: 0;
+        }
+
+        /* From Uiverse.io by gharsh11032000 */
+        .flip-card {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            perspective: 1000px;
+            box-shadow: 0 0 0 5px #ffffff80;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .flip-card svg {
+            width: 48px;
+            fill: #333;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .flip-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+        }
+
+        .flip-card__content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            transform: rotateX(-90deg);
+            transform-origin: bottom;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .flip-card:hover .flip-card__content {
+            transform: rotateX(0deg);
+        }
+
+        .flip-card__title {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .flip-card:hover svg {
+            scale: 0;
+        }
+
+        .flip-card__description {
+            margin: 10px 0 0;
+            font-size: 14px;
+            color: #777;
+            line-height: 1.4;
+        }
+
+        /* From Uiverse.io by xbeat_5120 */
+        .uiverse-pixel-input-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            font-family: "Courier New", monospace;
+            color: #2d3748;
+            font-size: 1em;
+            width: 18em;
+        }
+
+        .uiverse-pixel-label {
+            text-shadow: 1px 1px #000;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            color: #fff;
+        }
+
+        .uiverse-pixel-input {
+            appearance: none;
+            border: none;
+            padding: 0.6em;
+            font-size: 1em;
+            font-family: "Courier New", monospace;
+            color: #fff;
+            background: #ff6b35;
+            image-rendering: pixelated;
+            box-shadow:
+                0 0 0 0.15em #000,
+                0 0 0 0.3em #fff,
+                0 0 0 0.45em #000,
+                0 0.3em 0 0 #d1451e,
+                0 0.3em 0 0.15em #000;
+            outline: none;
+            transition: all 0.15s steps(1);
+            text-shadow: 1px 1px #000;
+        }
+
+        .uiverse-pixel-input::placeholder { 
+            color: #fff;
+            opacity: 0.6;
+        }
+
+        .uiverse-pixel-input:focus {
+            background: #ff8c42;
+            box-shadow:
+                0 0 0 0.15em #000,
+                0 0 0 0.3em #fff,
+                0 0 0 0.45em #000,
+                0 0.2em 0 0 #00cc66,
+                0 0.2em 0 0.15em #000;
+        }
+
+        .uiverse-pixel-input:hover {
+            animation: uiverse-glitch-input 0.3s steps(2) infinite;
+        }
+
+        /* Glitch animation */
+        @keyframes uiverse-glitch-input {
+            0% {
+                transform: translate(0);
+            }
+            25% {
+                transform: translate(-1px, 1px);
+            }
+            50% {
+                transform: translate(1px, -1px);
+            }
+            75% {
+                transform: translate(-1px, -1px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        /* From Uiverse.io by alexruix */
+        .magic-card {
+            --background: linear-gradient(to left, #ffd97d 0%, #ff9a9e 100%);
+            width: 190px;
+            height: 254px;
+            padding: 5px;
+            border-radius: 1rem;
+            overflow: visible;
+            background: #ffd97d;
+            background: var(--background);
+            position: relative;
+            z-index: 1;
+        }
+
+        .magic-card::after {
+            position: absolute;
+            content: "";
+            top: 30px;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            transform: scale(0.8);
+            filter: blur(25px);
+            background: #ffd97d;
+            transition: opacity .5s;
+        }
+
+        .magic-card-info {
+            --color: #ffffff;
+            background: var(--color);
+            color: #2d3748;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: .7rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .magic-card .magic-title {
+            font-weight: bold;
+            letter-spacing: .1em;
+            color: #2d3748 !important;
+        }
+        
+        .magic-card-info span,
+        .magic-card-info p,
+        .magic-card-info button,
+        .magic-card-info a {
+            color: #2d3748 !important;
+        }
+
+        .magic-card:hover .magic-card-info {
+            background: #ffffff;
+            transition: background 1s;
+        }
+        
+        .magic-card:hover .magic-title {
+            color: #ff9a9e !important;
+            transition: color 1s;
+        }
+
+        .magic-card:hover .dark-mode-title {
+            transform: translateY(-10px);
+        }
+
+        /* Counter Animation */
+        #click-counter-display,
+        #modal-counter-display {
+            transition: transform 0.3s ease;
+        }
+
+        /* Fade Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+        }
+
+        /* Loading Screen Styles */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        #loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            --background: linear-gradient(135deg, #667eea, #764ba2);
+            --shadow: rgba(102, 126, 234, 0.28);
+            --text: #ffffff;
+            --page: rgba(255, 255, 255, 0.36);
+            --page-fold: rgba(255, 255, 255, 0.52);
+            --duration: 3s;
+            width: 200px;
+            height: 140px;
+            position: relative;
+        }
+
+        .loader:before, .loader:after {
+            --r: -6deg;
+            content: "";
+            position: absolute;
+            bottom: 8px;
+            width: 120px;
+            top: 80%;
+            box-shadow: 0 16px 12px var(--shadow);
+            transform: rotate(var(--r));
+        }
+
+        .loader:before {
+            left: 4px;
+        }
+
+        .loader:after {
+            --r: 6deg;
+            right: 4px;
+        }
+
+        .loader div {
+            width: 100%;
+            height: 100%;
+            border-radius: 13px;
+            position: relative;
+            z-index: 1;
+            perspective: 600px;
+            box-shadow: 0 4px 6px var(--shadow);
+            background-image: var(--background);
+        }
+
+        .loader div ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            position: relative;
+        }
+
+        .loader div ul li {
+            --r: 180deg;
+            --o: 0;
+            --c: var(--page);
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            transform-origin: 100% 50%;
+            color: var(--c);
+            opacity: var(--o);
+            transform: rotateY(var(--r));
+            animation: var(--duration) ease infinite;
+        }
+
+        .loader div ul li:nth-child(2) {
+            --c: var(--page-fold);
+            animation-name: page-2;
+        }
+
+        .loader div ul li:nth-child(3) {
+            --c: var(--page-fold);
+            animation-name: page-3;
+        }
+
+        .loader div ul li:nth-child(4) {
+            --c: var(--page-fold);
+            animation-name: page-4;
+        }
+
+        .loader div ul li:nth-child(5) {
+            --c: var(--page-fold);
+            animation-name: page-5;
+        }
+
+        .loader div ul li svg {
+            width: 90px;
+            height: 120px;
+            display: block;
+        }
+
+        .loader div ul li:first-child {
+            --r: 0deg;
+            --o: 1;
+        }
+
+        .loader div ul li:last-child {
+            --o: 1;
+        }
+
+        .loader span {
+            display: block;
+            left: 0;
+            right: 0;
+            top: 100%;
+            margin-top: 20px;
+            text-align: center;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .loader .box {
+            --x: 0;
+            --y: 0;
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            left: 0;
+            top: 0;
+            transform: translate(var(--x), var(--y));
+        }
+
+        .loader .box div {
+            --r: 0deg;
+            --s: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 4px;
+            transform: rotate(var(--r)) scale(var(--s));
+            animation: var(--duration) ease infinite;
+        }
+
+        .loader .box.box0 {
+            --x: 0;
+            --y: 0;
+        }
+
+        .loader .box.box0 div {
+            animation-name: box-0;
+        }
+
+        .loader .box.box1 {
+            --x: 32px;
+            --y: 0;
+        }
+
+        .loader .box.box1 div {
+            animation-name: box-1;
+        }
+
+        .loader .box.box2 {
+            --x: 64px;
+            --y: 0;
+        }
+
+        .loader .box.box2 div {
+            animation-name: box-2;
+        }
+
+        .loader .box.box3 {
+            --x: 96px;
+            --y: 0;
+        }
+
+        .loader .box.box3 div {
+            animation-name: box-3;
+        }
+
+        .loader .box.box4 {
+            --x: 128px;
+            --y: 0;
+        }
+
+        .loader .box.box4 div {
+            animation-name: box-4;
+        }
+
+        .loader .box.box5 {
+            --x: 160px;
+            --y: 0;
+        }
+
+        .loader .box.box5 div {
+            animation-name: box-5;
+        }
+
+        .loader .box.box6 {
+            --x: 192px;
+            --y: 0;
+        }
+
+        .loader .box.box6 div {
+            animation-name: box-6;
+        }
+
+        .loader .box.box7 {
+            --x: 224px;
+            --y: 0;
+        }
+
+        .loader .box.box7 div {
+            animation-name: box-7;
+        }
+
+        .loader .ground {
+            position: absolute;
+            left: -8px;
+            top: 28px;
+            width: 240px;
+            height: 8px;
+        }
+
+        .loader .ground div {
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            transform: scaleY(0);
+            animation: ground var(--duration) ease infinite;
+        }
+
+        @keyframes box-0 {
+            5% {
+                --r: 0deg;
+                --s: 1;
+            }
+            10%, 15% {
+                --r: 90deg;
+                --s: 1;
+            }
+            20% {
+                --r: 90deg;
+                --s: 0;
+            }
+        }
+
+        @keyframes box-1 {
+            10% {
+                --r: 0deg;
+                --s: 1;
+            }
+            15%, 20% {
+                --r: 90deg;
+                --s: 1;
+            }
+            25% {
+                --r: 90deg;
+                --s: 0;
+            }
+        }
+
+        @keyframes box-2 {
+            15% {
+                --r: 0deg;
+                --s: 1;
+            }
+            20%, 25% {
+                --r: 90deg;
+                --s: 1;
+            }
+            30% {
+                --r: 90deg;
+                --s: 0;
+            }
+        }
+
+        @keyframes box-3 {
+            20% {
+                --r: 0deg;
+                --s: 1;
+            }
+            25%, 30% {
+                --r: 90deg;
+                --s: 1;
+            }
+            35% {
+                --r: 90deg;
+                --s: 0;
+            }
+        }
+
+        @keyframes box-4 {
+            25% {
+                --r: 0deg;
+                --s: 1;
+            }
+            30%, 35% {
+                --r: 90deg;
+                --s: 1;
+            }
+            40% {
+                --r: 90deg;
+                --s: 0;
+            }
+        }
+
+        @keyframes box-5 {
+            30% {
+                --r: 0deg;
+                --s: 1;
+            }
+            35%, 40% {
+                --r: 90deg;
+                --s: 1;
+            }
+            45% {
+                --r: 90deg;
+                --s: 0;
+            }
+        }
+
+        @keyframes box-6 {
+            35% {
+                --r: 0deg;
+                --s: 1;
+            }
+            40%, 45% {
+                --r: 90deg;
+                --s: 1;
+            }
+            50% {
+                --r: 90deg;
+                --s: 0;
+            }
+        }
+
+        @keyframes box-7 {
+            40% {
+                --r: 0deg;
+                --s: 1;
+            }
+            45%, 50% {
+                --r: 90deg;
+                --s: 1;
+            }
+            55% {
+                --r: 90deg;
+                --s: 0;
+            }
+        }
+
+        @keyframes ground {
+            0%, 65% {
+                transform: scaleY(0);
+            }
+            75%, 100% {
+                transform: scaleY(1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <!-- From Uiverse.io by Admin12121 -->
+        <div class="loader">
+            <div class="box box0">
+                <div></div>
+            </div>
+            <div class="box box1">
+                <div></div>
+            </div>
+            <div class="box box2">
+                <div></div>
+            </div>
+            <div class="box box3">
+                <div></div>
+            </div>
+            <div class="box box4">
+                <div></div>
+            </div>
+            <div class="box box5">
+                <div></div>
+            </div>
+            <div class="box box6">
+                <div></div>
+            </div>
+            <div class="box box7">
+                <div></div>
+            </div>
+            <div class="ground">
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <!-- End Loading Screen -->
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold text-gray-800">Jamby Belotindos</div>
+                
+                <!-- From Uiverse.io by eslam-hany -->
+                <div class="hidden md:flex button-container" style="gap: 12px;">
+                    <button class="navbar-button" onclick="window.location.href='#home'" title="Home">
+                        <svg class="icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 0 0-44.4 0L77.5 505a63.9 63.9 0 0 0-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0 0 18.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z"></path>
+                        </svg>
+                    </button>
+                    <button class="navbar-button" onclick="window.location.href='#about'" title="About">
+                        <svg class="icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"></path>
+                        </svg>
+                    </button>
+                    <button class="navbar-button" onclick="window.location.href='#projects'" title="Projects">
+                        <svg class="icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                    <button class="navbar-button" onclick="window.location.href='#skills'" title="Skills">
+                        <svg class="icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z"></path><path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z"></path><path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z"></path>
+                        </svg>
+                    </button>
+                    <button class="navbar-button" onclick="window.location.href='#contact'" title="Contact">
+                        <svg class="icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="#home" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
+                <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600">About</a>
+                <a href="#projects" class="block py-2 text-gray-600 hover:text-blue-600">Projects</a>
+                <a href="#skills" class="block py-2 text-gray-600 hover:text-blue-600">Skills</a>
+                <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="text-white min-h-full flex items-center" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%), url('Css/images/pic.jpg'); background-size: cover; background-position: center center; background-attachment: fixed; position: relative;">
+        <!-- Overlay for better text readability -->
+        <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.3); z-index: 0;"></div>
+        
+        <div class="max-w-6xl mx-auto px-4 py-20" style="position: relative; z-index: 1;">
+            <div class="text-center">
+               <div class="w-32 h-32 bg-white rounded-full mx-auto mb-8 flex items-center justify-center overflow-hidden animate-scaleIn animate-float" style="box-shadow: 0 8px 25px rgba(0,0,0,0.3); border: 4px solid white;">
+                <img src="Css/images/Jam.jpg" alt="Jamby Belotindos Profile" class="w-32 h-32 rounded-full object-cover" />
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeInDown delay-100" style="text-shadow: 3px 3px 6px rgba(0,0,0,0.5);">Jamby Belotindos</h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90 animate-fadeInDown delay-200" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Turning ideas into interactive experiences.</p>
+                <p class="text-lg mb-8 max-w-2xl mx-auto opacity-80 animate-fadeInUp delay-300" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                </p>
+            </div>
+
+        </div>
+    </section>
+<section class="hero">
+  <div class="hero-content">
+    <p>you can view my resume when clicking the button below</p>
+    <a href="resume.html" class="btn" target="_blank">View My Resume</a>
+  </div>
+
+  <style>
+.hero {
+  background: url('background.jpg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.btn {
+  background-color: #ff6363;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #ff4545;
+}
+</style>
+
+</section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <!-- Profile Image -->
+                    <div class="mb-8 text-center md:text-left">
+                        <img src="Css/images/Mypic.jpg" alt="Jamby Belotindos" class="profile-img" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin: 0 auto; border: 5px solid #667eea; box-shadow: 0 10px 25px rgba(0,0,0,0.15); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 15px 35px rgba(102, 126, 234, 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.15)'">
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-6">Passionate Developer</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        I'm a dedicated web developer with a passion for creating innovative digital solutions. 
+                        With expertise in modern web technologies, I bring ideas to life through clean code and thoughtful design.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        When I'm not coding, you can find me exploring new technologies, contributing to open source projects, 
+                        or enjoying outdoor activities that keep me inspired and creative.
+                    </p>
+                </div>
+                <!-- From Uiverse.io by gharsh11032000 -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <div class="flip-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <div class="flip-card__content">
+                            <p class="flip-card__title">Location</p>
+                            <p class="flip-card__description">Based in Bansalan, Davao Del Sur, Philippines. Open to remote opportunities worldwide.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        <div class="flip-card__content">
+                            <p class="flip-card__title">Experience</p>
+                            <p class="flip-card__description">3+ years of hands-on experience in web development, creating responsive and user-friendly applications.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+                        <div class="flip-card__content">
+                            <p class="flip-card__title">Availability</p>
+                            <p class="flip-card__description">Currently available for freelance projects and full-time opportunities. Ready to start immediately.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <div class="flip-card__content">
+                            <p class="flip-card__title">Contact</p>
+                            <p class="flip-card__description">Email: jambybelotindos@gmail.com. Feel free to reach out for collaborations or inquiries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">My Activities</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Here are some of my recent projects that showcase my skills and creativity.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Activity  1 - JavaScript Fundamentals -->
+                <div class="magic-card" style="width: 100%; height: auto; min-height: 400px;">
+                    <div class="magic-card-info" style="flex-direction: column; padding: 30px; gap: 15px;">
+                        <p class="magic-title" style="font-size: 26px; margin: 0; font-weight: 700;">JavaScript</p>
+                        <div style="width: 60px; height: 4px; background: #ff9a9e; border-radius: 2px;"></div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px;">
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 5px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">JavaScript</span>
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 5px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">Objects</span>
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 5px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">Arrays</span>
+                        </div>
+                        <div style="display: flex; gap: 12px; margin-top: 15px; flex-wrap: wrap; justify-content: center;">
+                            <button onclick="showJavaScriptDemo()" style="padding: 8px 16px; background: #ff9a9e; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s;" onmouseover="this.style.background='#ffd97d'; this.style.color='#2d3748'" onmouseout="this.style.background='#ff9a9e'; this.style.color='white'">Full Demo</button>
+                            <a href="#" style="padding: 8px 16px; background: white; color: #ff9a9e; border: 2px solid #ff9a9e; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 13px; transition: all 0.3s; display: inline-block;" onmouseover="this.style.background='rgba(255,154,158,0.1)'" onmouseout="this.style.background='white'">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 2 - Interactive Modal Toggle -->
+                <div class="magic-card" style="width: 100%; height: auto; min-height: 400px;">
+                    <div class="magic-card-info" style="flex-direction: column; padding: 30px; gap: 15px;">
+                        <p class="magic-title" style="font-size: 26px; margin: 0; font-weight: 700;">Modal Toggle</p>
+                        <div style="width: 60px; height: 4px; background: #ff9a9e; border-radius: 2px;"></div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px;">
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 5px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">JavaScript</span>
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 5px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">Modal</span>
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 5px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">Toggle</span>
+                        </div>
+                        <div style="display: flex; gap: 12px; margin-top: 15px; flex-wrap: wrap; justify-content: center;">
+                            <button onclick="showButtonDemo()" style="padding: 8px 16px; background: #ff9a9e; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s;" onmouseover="this.style.background='#ffd97d'; this.style.color='#2d3748'" onmouseout="this.style.background='#ff9a9e'; this.style.color='white'">View Demo</button>
+                            <a href="#" style="padding: 8px 16px; background: white; color: #ff9a9e; border: 2px solid #ff9a9e; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 13px; transition: all 0.3s; display: inline-block;" onmouseover="this.style.background='rgba(255,154,158,0.1)'" onmouseout="this.style.background='white'">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 3 - HTML Fundamentals -->
+                <!-- From Uiverse.io by alexruix -->
+                <div class="magic-card" style="width: 100%; height: auto; min-height: 400px;">
+                    <div class="magic-card-info" style="flex-direction: column; padding: 30px; gap: 20px;">
+                        <p class="magic-title" style="font-size: 28px; margin: 0; font-weight: 700;">HTML5</p>
+                        <div style="width: 60px; height: 4px; background: #ff9a9e; border-radius: 2px;"></div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 10px;">
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">HTML5</span>
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Forms</span>
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Media</span>
+                        </div>
+                        <div style="display: flex; gap: 15px; margin-top: 20px;">
+                            <button onclick="showHtmlDemo()" style="padding: 10px 20px; background: #ff9a9e; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#ffd97d'; this.style.color='#2d3748'" onmouseout="this.style.background='#ff9a9e'; this.style.color='white'">View Demo</button>
+                            <a href="#" style="padding: 10px 20px; background: white; color: #ff9a9e; border: 2px solid #ff9a9e; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,154,158,0.1)'" onmouseout="this.style.background='white'">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 4 - Interactive Hover Card -->
+                <div class="magic-card" style="width: 100%; height: auto; min-height: 400px;">
+                    <div class="magic-card-info" style="flex-direction: column; padding: 30px; gap: 15px;">
+                        <p class="magic-title" style="font-size: 26px; margin: 0; font-weight: 700;">Hover Effects</p>
+                        <div style="width: 60px; height: 4px; background: #ff9a9e; border-radius: 2px;"></div>
+                        
+                        <!-- Profile Picture -->
+                        <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 3px solid #f7ba2b; box-shadow: 0 4px 8px rgba(0,0,0,0.3); margin: 10px auto; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(5deg)'; this.style.boxShadow='0 8px 16px rgba(247, 186, 43, 0.5)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)'">
+                            <img src="Css/images/Mypic.jpg" alt="Jamby Belotindos" style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                        
+                        <!-- Hover Button Demo -->
+                        <!-- From Uiverse.io by Gaurav-WebDev -->
+                        <div style="margin: 15px 0;">
+                            <button class="button type1"></button>
+                        </div>
+                        
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px;">
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 5px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">HTML</span>
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 5px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">CSS</span>
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 5px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">Animations</span>
+                        </div>
+                        <div style="display: flex; gap: 12px; margin-top: 15px; flex-wrap: wrap; justify-content: center;">
+                            <a href="#" style="padding: 8px 16px; background: #ff9a9e; color: white; border: none; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 13px; transition: all 0.3s; display: inline-block;" onmouseover="this.style.background='#ffd97d'; this.style.color='#2d3748'" onmouseout="this.style.background='#ff9a9e'; this.style.color='white'">Live Demo</a>
+                            <a href="#" style="padding: 8px 16px; background: white; color: #ff9a9e; border: 2px solid #ff9a9e; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 13px; transition: all 0.3s; display: inline-block;" onmouseover="this.style.background='rgba(255,154,158,0.1)'" onmouseout="this.style.background='white'">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 5 - Dark Mode Toggle -->
+                <div class="magic-card" style="width: 100%; height: auto; min-height: 400px;">
+                    <div class="magic-card-info" style="flex-direction: column; padding: 30px; gap: 15px;">
+                        <p class="magic-title dark-mode-title" style="font-size: 26px; margin: 0; font-weight: 700; transition: transform 0.4s ease; margin-top: -10px;">Dark Mode</p>
+                        <div style="width: 60px; height: 4px; background: #ff9a9e; border-radius: 2px;"></div>
+                        
+                        <!-- Dark Mode Toggle Button -->
+                        <div class="dial" id="dark-mode-dial" style="margin: 15px 0;">
+                            <label class="off">
+                                <input checked="" name="theme-mode" type="radio" class="inputBox" id="light-mode-input" onchange="setLightMode()" />
+                                <div class="button">OFF</div>
+                            </label>
+                            <label>
+                                <input name="theme-mode" type="radio" class="inputBox" id="dark-mode-input" onchange="setDarkMode()" />
+                                <div class="button">ON</div>
+                            </label>
+                        </div>
+                        
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px;">
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 5px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">JavaScript</span>
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 5px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">CSS Variables</span>
+                            <span style="background: rgba(255, 154, 158, 0.2); color: #e85d75; padding: 5px 10px; border-radius: 15px; font-size: 11px; font-weight: 600;">DOM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4" style="cursor: pointer; transition: color 0.3s;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color=''" onclick="alert('Explore my technical skills and the technologies I use to build amazing projects!')">Skills & Technologies</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Technologies and tools I work with to bring ideas to life.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Frontend -->
+                <div class="text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Frontend</h3>
+                    <div class="space-y-2">
+                        <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">HTML/CSS</span>
+                        <span class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                        <span class="inline-block bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-sm">React</span>
+                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Vue.js</span>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="text-center">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Backend</h3>
+                    <div class="space-y-2">
+                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Node.js</span>
+                        <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">MongoDB</span>
+                        <span class="inline-block bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="text-center">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Tools</h3>
+                    <div class="space-y-2">
+                        <span class="inline-block bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Git/GitHub</span>
+                        <span class="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">VS Code</span>
+                        <span class="inline-block bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">Figma</span>
+                        <span class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20" style="background: #1a1a1a;">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4" style="color: #fff;">Get In Touch</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
+                <p class="max-w-2xl mx-auto" style="color: #ccc;">I'm always interested in new opportunities and collaborations. Let's discuss your project!</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6" style="color: #fff;">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-blue-100 p-3 rounded-full">
+                                <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold" style="color: #fff;">Email</h4>
+                                <p style="color: #ccc;">jambybelotindos@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-blue-100 p-3 rounded-full">
+                                <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold" style="color: #fff;">Location</h4>
+                                <p style="color: #ccc;">Bansalan, Davao Del Sur, Philippines</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <form id="contact-form" class="space-y-6">
+                        <!-- From Uiverse.io by cohencoo -->
+                        <div>
+                            <label style="color: #fff; font-weight: 600; margin-bottom: 8px; display: block;">NAME</label>
+                            <input placeholder="Write your name..." class="custom-input" id="name" name="name" type="text" required style="width: 100%;" />
+                        </div>
+                        <div>
+                            <label style="color: #fff; font-weight: 600; margin-bottom: 8px; display: block;">EMAIL</label>
+                            <input placeholder="Write your email..." class="custom-input" id="email" name="email" type="email" required style="width: 100%;" />
+                        </div>
+                        <div>
+                            <label style="color: #fff; font-weight: 600; margin-bottom: 8px; display: block;">MESSAGE</label>
+                            <textarea placeholder="Write your message..." class="custom-input" id="message" name="message" rows="4" required style="resize: vertical; min-height: 100px; width: 100%;"></textarea>
+                        </div>
+                        <!-- From Uiverse.io by ZacharyCrespin -->
+                        <button type="submit" class="shadow-send-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript Demo Modal -->
+    <div id="javascript-demo-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-full overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">JavaScript Fundamentals Demo</h2>
+                    <button onclick="closeJavaScriptDemo()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                </div>
+                
+                <!-- JavaScript Demo -->
+                <div class="bg-white border rounded-lg overflow-hidden" style="font-family: Arial, sans-serif;">
+                    <div style="background-color: #f8f9fa; padding: 30px;">
+                        <!-- Alert Button -->
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <h3 style="color: #333; margin-bottom: 15px;">Alert Button</h3>
+                            <button onclick="alert('Hello, you pressed the button alert!')" style="padding: 15px 30px; background-color: #e91e63; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 18px; font-weight: bold;" onmouseover="this.style.backgroundColor='#c2185b'" onmouseout="this.style.backgroundColor='#e91e63'">Click Me</button>
+                        </div>
+
+                        <!-- Variables Demo -->
+                        <div style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <h3 style="color: #333; margin-bottom: 15px;">Variables & Template Literals</h3>
+                            <button onclick="showVariablesDemo()" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Show Variables</button>
+                            <div id="variables-output" style="margin-top: 15px; padding: 10px; background: #f8f9fa; border-radius: 4px; min-height: 20px; font-family: monospace;"></div>
+                        </div>
+
+                        <!-- Arithmetic Operations -->
+                        <div style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <h3 style="color: #333; margin-bottom: 15px;">Arithmetic Operations</h3>
+                            <button onclick="showArithmeticDemo()" style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">Calculate (x=10, y=5)</button>
+                            <div id="arithmetic-output" style="margin-top: 15px; padding: 10px; background: #f8f9fa; border-radius: 4px; min-height: 20px; font-family: monospace;"></div>
+                        </div>
+
+                        <!-- Object Array Demo -->
+                        <div style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <h3 style="color: #333; margin-bottom: 15px;">Object Array (People)</h3>
+                            <button onclick="showPeopleDemo()" style="padding: 10px 20px; background-color: #6f42c1; color: white; border: none; border-radius: 4px; cursor: pointer;">Show People Array</button>
+                            <div id="people-output" style="margin-top: 15px; padding: 10px; background: #f8f9fa; border-radius: 4px; min-height: 20px; font-family: monospace;"></div>
+                        </div>
+
+                        <!-- Object Literal Demo -->
+                        <div style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <h3 style="color: #333; margin-bottom: 15px;">Object Literal (Person)</h3>
+                            <button onclick="showPersonDemo()" style="padding: 10px 20px; background-color: #fd7e14; color: white; border: none; border-radius: 4px; cursor: pointer;">Show Person Object</button>
+                            <div id="person-output" style="margin-top: 15px; padding: 10px; background: #f8f9fa; border-radius: 4px; min-height: 20px; font-family: monospace;"></div>
+                        </div>
+
+                        <!-- Console Output -->
+                        <div style="padding: 20px; background: #2d3748; color: #e2e8f0; border-radius: 8px;">
+                            <h3 style="color: #e2e8f0; margin-bottom: 15px;">Console Output</h3>
+                            <div id="console-output" style="font-family: monospace; font-size: 14px; line-height: 1.5; min-height: 100px; white-space: pre-wrap;"></div>
+                            <button onclick="clearConsole()" style="padding: 8px 16px; background-color: #e53e3e; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px;">Clear Console</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button Demo Modal -->
+    <div id="button-demo-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-md w-full">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Contact Form</h2>
+                    <button onclick="toggleButtonDemo()" class="text-gray-500 hover:text-gray-700 text-3xl font-bold leading-none">&times;</button>
+                </div>
+                
+                <!-- Modal Form -->
+                <form id="modal-contact-form" onsubmit="handleModalFormSubmit(event)" style="font-family: Arial, sans-serif;">
+                    <div style="margin-bottom: 20px;">
+                        <label for="modal-name" style="display: block; margin-bottom: 8px; color: #374151; font-weight: 600; font-size: 14px;">Name</label>
+                        <input type="text" id="modal-name" name="name" required placeholder="Enter your name" style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 14px; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='#e5e7eb'">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label for="modal-email" style="display: block; margin-bottom: 8px; color: #374151; font-weight: 600; font-size: 14px;">Email</label>
+                        <input type="email" id="modal-email" name="email" required placeholder="Enter your email" style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 14px; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='#e5e7eb'">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label for="modal-message" style="display: block; margin-bottom: 8px; color: #374151; font-weight: 600; font-size: 14px;">Message</label>
+                        <textarea id="modal-message" name="message" rows="4" required placeholder="Enter your message" style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 14px; resize: vertical; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='#e5e7eb'"></textarea>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                        <button type="button" onclick="toggleButtonDemo()" style="padding: 12px 24px; background-color: #e5e7eb; color: #374151; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#d1d5db'" onmouseout="this.style.backgroundColor='#e5e7eb'">
+                            Cancel
+                        </button>
+                        <button type="submit" style="padding: 12px 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(102, 126, 234, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(102, 126, 234, 0.3)'">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- HTML Demo Modal -->
+    <div id="html-demo-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-full overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">HTML Fundamentals Demo</h2>
+                    <button onclick="closeHtmlDemo()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                </div>
+                
+                <!-- Complete HTML Demo with Custom Styling -->
+                <div class="bg-white border rounded-lg overflow-hidden" style="font-family: Arial, sans-serif;">
+                    <!-- Header and Navigation -->
+                    <header style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; padding: 25px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; overflow: hidden;">
+                        <!-- Decorative Background Elements -->
+                        <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: rgba(255,255,255,0.1); border-radius: 50%; z-index: 0;"></div>
+                        <div style="position: absolute; bottom: -30px; left: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%; z-index: 0;"></div>
+                        
+                        <div style="position: relative; z-index: 1;">
+                            <h1 style="margin: 0 0 8px 0; font-size: 32px; font-weight: 800; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">My Webpage</h1>
+                            <p style="margin: 0 0 20px 0; font-size: 14px; opacity: 0.9; letter-spacing: 0.5px;">HTML5 Fundamentals Showcase</p>
+                            
+                            <nav style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
+                                <a href="#demo-form-section" style="padding: 10px 20px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3); border-radius: 25px; text-decoration: none; color: white; font-weight: 600; font-size: 14px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.background='white'; this.style.color='#667eea'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'; this.style.color='white'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">📝 Form</a>
+                                <a href="#demo-table-section" style="padding: 10px 20px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3); border-radius: 25px; text-decoration: none; color: white; font-weight: 600; font-size: 14px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.background='white'; this.style.color='#667eea'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'; this.style.color='white'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">📊 Table</a>
+                                <a href="#demo-link-section" style="padding: 10px 20px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3); border-radius: 25px; text-decoration: none; color: white; font-weight: 600; font-size: 14px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.background='white'; this.style.color='#667eea'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'; this.style.color='white'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">🔗 Link</a>
+                                <a href="#demo-media-section" style="padding: 10px 20px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3); border-radius: 25px; text-decoration: none; color: white; font-weight: 600; font-size: 14px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.background='white'; this.style.color='#667eea'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'; this.style.color='white'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">🎬 Media</a>
+                            </nav>
+                        </div>
+                    </header>
+
+                    <div style="padding: 20px;">
+                        <!-- Contact Form -->
+                        <div id="demo-form-section">
+                            <h2 style="color: #333; margin-bottom: 15px;">Contact Form</h2>
+                            <div class="login-box" style="position: relative; transform: none; margin: 20px auto; left: auto; top: auto;">
+                                <p style="margin: 0 0 30px; padding: 0; color: #fff; text-align: center; font-size: 1.5rem; font-weight: bold; letter-spacing: 1px;">Get In Touch</p>
+                                <form id="demo-form">
+                                    <div class="user-box" style="position: relative;">
+                                        <input type="text" id="demo-name" name="name" required style="width: 100%; padding: 10px 0; font-size: 16px; color: #fff; margin-bottom: 30px; border: none; border-bottom: 1px solid #fff; outline: none; background: transparent;">
+                                        <label for="demo-name" style="position: absolute; top: 0; left: 0; padding: 10px 0; font-size: 16px; color: #fff; pointer-events: none; transition: .5s;">Name</label>
+                                    </div>
+                                    <div class="user-box" style="position: relative;">
+                                        <input type="email" id="demo-email" name="email" required style="width: 100%; padding: 10px 0; font-size: 16px; color: #fff; margin-bottom: 30px; border: none; border-bottom: 1px solid #fff; outline: none; background: transparent;">
+                                        <label for="demo-email" style="position: absolute; top: 0; left: 0; padding: 10px 0; font-size: 16px; color: #fff; pointer-events: none; transition: .5s;">Email</label>
+                                    </div>
+                                    <div class="user-box" style="position: relative;">
+                                        <input type="text" id="demo-message" name="message" required style="width: 100%; padding: 10px 0; font-size: 16px; color: #fff; margin-bottom: 30px; border: none; border-bottom: 1px solid #fff; outline: none; background: transparent;">
+                                        <label for="demo-message" style="position: absolute; top: 0; left: 0; padding: 10px 0; font-size: 16px; color: #fff; pointer-events: none; transition: .5s;">Message</label>
+                                    </div>
+                                    <center>
+                                        <a href="#" onclick="event.preventDefault(); document.getElementById('demo-form').dispatchEvent(new Event('submit'));" style="position: relative; display: inline-block; padding: 10px 20px; font-weight: bold; color: #fff; font-size: 16px; text-decoration: none; text-transform: uppercase; overflow: hidden; transition: .5s; margin-top: 40px; letter-spacing: 3px;">
+                                            <span style="position: absolute; display: block; top: 0; left: -100%; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #fff); animation: btn-anim1 1.5s linear infinite;"></span>
+                                            <span style="position: absolute; display: block; top: -100%; right: 0; width: 2px; height: 100%; background: linear-gradient(180deg, transparent, #fff); animation: btn-anim2 1.5s linear infinite; animation-delay: .375s;"></span>
+                                            <span style="position: absolute; display: block; bottom: 0; right: -100%; width: 100%; height: 2px; background: linear-gradient(270deg, transparent, #fff); animation: btn-anim3 1.5s linear infinite; animation-delay: .75s;"></span>
+                                            <span style="position: absolute; display: block; bottom: -100%; left: 0; width: 2px; height: 100%; background: linear-gradient(360deg, transparent, #fff); animation: btn-anim4 1.5s linear infinite; animation-delay: 1.125s;"></span>
+                                            Submit
+                                        </a>
+                                    </center>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Sample Table -->
+                        <div id="demo-table-section" style="margin-top: 30px;">
+                            <h2 style="color: #333; margin-bottom: 15px;">Product Pricing Table</h2>
+                            <div style="overflow-x: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
+                                <table style="width: 100%; border-collapse: collapse; margin: 0; background: white; min-width: 500px;">
+                                    <thead>
+                                        <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                            <th style="padding: 16px 20px; text-align: left; color: white; font-weight: 700; font-size: 15px; letter-spacing: 0.5px; border: none;">Product</th>
+                                            <th style="padding: 16px 20px; text-align: center; color: white; font-weight: 700; font-size: 15px; letter-spacing: 0.5px; border: none;">Category</th>
+                                            <th style="padding: 16px 20px; text-align: center; color: white; font-weight: 700; font-size: 15px; letter-spacing: 0.5px; border: none;">Stock</th>
+                                            <th style="padding: 16px 20px; text-align: right; color: white; font-weight: 700; font-size: 15px; letter-spacing: 0.5px; border: none;">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="border-bottom: 1px solid #e5e7eb; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#f9fafb'; this.style.transform='scale(1.01)'" onmouseout="this.style.backgroundColor='white'; this.style.transform='scale(1)'">
+                                            <td style="padding: 16px 20px; border: none;">
+                                                <div style="display: flex; align-items: center; gap: 12px;">
+                                                    <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #ffeaa7, #fdcb6e); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px;">🍎</div>
+                                                    <span style="font-weight: 600; color: #1f2937;">Apple</span>
+                                                </div>
+                                            </td>
+                                            <td style="padding: 16px 20px; text-align: center; border: none;">
+                                                <span style="background: #dbeafe; color: #1e40af; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Fruit</span>
+                                            </td>
+                                            <td style="padding: 16px 20px; text-align: center; color: #10b981; font-weight: 600; border: none;">In Stock</td>
+                                            <td style="padding: 16px 20px; text-align: right; font-weight: 700; color: #667eea; font-size: 16px; border: none;">$1.00</td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #e5e7eb; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#f9fafb'; this.style.transform='scale(1.01)'" onmouseout="this.style.backgroundColor='white'; this.style.transform='scale(1)'">
+                                            <td style="padding: 16px 20px; border: none;">
+                                                <div style="display: flex; align-items: center; gap: 12px;">
+                                                    <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #ffeaa7, #fdcb6e); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px;">🍌</div>
+                                                    <span style="font-weight: 600; color: #1f2937;">Banana</span>
+                                                </div>
+                                            </td>
+                                            <td style="padding: 16px 20px; text-align: center; border: none;">
+                                                <span style="background: #dbeafe; color: #1e40af; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Fruit</span>
+                                            </td>
+                                            <td style="padding: 16px 20px; text-align: center; color: #10b981; font-weight: 600; border: none;">In Stock</td>
+                                            <td style="padding: 16px 20px; text-align: right; font-weight: 700; color: #667eea; font-size: 16px; border: none;">$0.50</td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #e5e7eb; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#f9fafb'; this.style.transform='scale(1.01)'" onmouseout="this.style.backgroundColor='white'; this.style.transform='scale(1)'">
+                                            <td style="padding: 16px 20px; border: none;">
+                                                <div style="display: flex; align-items: center; gap: 12px;">
+                                                    <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #ff9a9e, #fad0c4); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px;">🍒</div>
+                                                    <span style="font-weight: 600; color: #1f2937;">Cherry</span>
+                                                </div>
+                                            </td>
+                                            <td style="padding: 16px 20px; text-align: center; border: none;">
+                                                <span style="background: #dbeafe; color: #1e40af; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Fruit</span>
+                                            </td>
+                                            <td style="padding: 16px 20px; text-align: center; color: #f59e0b; font-weight: 600; border: none;">Low Stock</td>
+                                            <td style="padding: 16px 20px; text-align: right; font-weight: 700; color: #667eea; font-size: 16px; border: none;">$2.00</td>
+                                        </tr>
+                                        <tr style="transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#f9fafb'; this.style.transform='scale(1.01)'" onmouseout="this.style.backgroundColor='white'; this.style.transform='scale(1)'">
+                                            <td style="padding: 16px 20px; border: none;">
+                                                <div style="display: flex; align-items: center; gap: 12px;">
+                                                    <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #a8edea, #fed6e3); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px;">🍇</div>
+                                                    <span style="font-weight: 600; color: #1f2937;">Grapes</span>
+                                                </div>
+                                            </td>
+                                            <td style="padding: 16px 20px; text-align: center; border: none;">
+                                                <span style="background: #dbeafe; color: #1e40af; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Fruit</span>
+                                            </td>
+                                            <td style="padding: 16px 20px; text-align: center; color: #10b981; font-weight: 600; border: none;">In Stock</td>
+                                            <td style="padding: 16px 20px; text-align: right; font-weight: 700; color: #667eea; font-size: 16px; border: none;">$3.50</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- External Link -->
+                        <div id="demo-link-section" style="margin-top: 30px;">
+                            <h2 style="color: #333; margin-bottom: 15px;">Visit My Facebook Page</h2>
+                            <a href="https://www.facebook.com/jamby.belotindos.18" target="_blank" rel="noopener noreferrer" style="color: blue; text-decoration: underline;">Click here to visit my Facebook</a>
+                        </div>
+
+                        <!-- Media Elements -->
+                        <div id="demo-media-section" style="margin-top: 30px;">
+                            <h2 style="color: #333; margin-bottom: 15px;">Media</h2>
+                            
+                            <!-- Image -->
+                            <div style="margin-bottom: 20px;">
+                                <img src="Css/images/Jam.jpeg" alt="My Picture" style="max-width: 200px; border-radius: 10px; display: block; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" width="150" height="150">
+                            </div>
+
+                            <!-- Audio -->
+                            <div style="margin: 20px 0;">
+                                <h3 style="color: #333; margin-bottom: 10px;">Sample Audio</h3>
+                                <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), url('Css/images/Mypic.jpg'); background-size: cover; background-position: center; padding: 30px; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); text-align: center;">
+                                    <!-- Album Art / Background Info -->
+                                    <div style="margin-bottom: 20px;">
+                                        <h2 style="color: white; font-size: 24px; font-weight: bold; margin: 0 0 8px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">ME & You</h2>
+                                        <p style="color: rgba(255,255,255,0.9); font-size: 14px; margin: 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Featured Song</p>
+                                    </div>
+                                    
+                                    <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 20px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.3);">
+                                        <div style="margin-bottom: 15px;">
+                                            <svg style="width: 48px; height: 48px; color: white; margin: 0 auto;" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                                            </svg>
+                                        </div>
+                                        <p style="color: white; font-weight: bold; margin: 0 0 15px 0; font-size: 16px;">🎵 Now Playing</p>
+                                        <audio controls style="width: 100%; max-width: 350px; border-radius: 8px; outline: none; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+                                            <source src="Css/audio/ME_you.mp3" type="audio/mpeg">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video -->
+                            <div style="margin: 20px 0;">
+                                <h3 style="color: #333; margin-bottom: 10px;">Sample Video</h3>
+                                <div style="text-align: center;">
+                                    <video controls style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); outline: none;">
+                                        <source src="Css/videos/myvideo.mp4" type="video/mp4">
+                                        Your browser does not support the video element.
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <footer style="background-color: violet; color: black; text-align: center; padding: 10px; margin-top: 30px;">
+                        <p style="margin: 0;">&copy; Thank you for visiting this site.</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2025 Jamby Belotindos. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="https://www.facebook.com/jamby.belotindos.18" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300">Facebook</a>
+   <a href="https://github.com/arfarfraf" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300">GitHub</a>
+
+</div>
+
+    <script>
+        // Dark Mode Toggle with Dial Buttons
+        let isDarkMode = false;
+        
+        function setDarkMode() {
+            const body = document.body;
+            isDarkMode = true;
+            body.classList.add('dark-mode');
+            body.style.backgroundColor = '#1a202c';
+            body.style.color = '#ffffff';
+            
+            // Update all text elements for readability
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (!section.classList.contains('hero-section')) {
+                    section.style.backgroundColor = '#1a202c';
+                    section.style.color = '#ffffff';
+                }
+            });
+            
+            // Update headings
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            headings.forEach(heading => {
+                heading.style.color = '#ffffff';
+            });
+            
+            // Update paragraphs and text
+            const paragraphs = document.querySelectorAll('p, span, a, label');
+            paragraphs.forEach(p => {
+                if (!p.closest('.magic-card') && !p.closest('.hero-section') && !p.closest('button')) {
+                    p.style.color = '#e2e8f0';
+                }
+            });
+            
+            // Update specific gray text elements
+            const grayTexts = document.querySelectorAll('.text-gray-600, .text-gray-700, .text-gray-800');
+            grayTexts.forEach(text => {
+                text.style.color = '#cbd5e0';
+            });
+        }
+        
+        function setLightMode() {
+            const body = document.body;
+            isDarkMode = false;
+            body.classList.remove('dark-mode');
+            body.style.backgroundColor = '';
+            body.style.color = '';
+            
+            // Reset all text elements
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.backgroundColor = '';
+                section.style.color = '';
+            });
+            
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            headings.forEach(heading => {
+                heading.style.color = '';
+            });
+            
+            const paragraphs = document.querySelectorAll('p, span, a, label');
+            paragraphs.forEach(p => {
+                p.style.color = '';
+            });
+            
+            const grayTexts = document.querySelectorAll('.text-gray-600, .text-gray-700, .text-gray-800');
+            grayTexts.forEach(text => {
+                text.style.color = '';
+            });
+        }
+        
+        function toggleDarkMode() {
+            if (isDarkMode) {
+                setLightMode();
+                document.getElementById('light-mode-input').checked = true;
+            } else {
+                setDarkMode();
+                document.getElementById('dark-mode-input').checked = true;
+            }
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Contact form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Show success message
+            alert(`Thank you, ${name}! Your message has been received. I'll get back to you soon at ${email}.`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // JavaScript Demo Functions
+        function showJavaScriptDemo() {
+            document.getElementById('javascript-demo-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeJavaScriptDemo() {
+            document.getElementById('javascript-demo-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            // Clear all outputs
+            document.getElementById('variables-output').innerHTML = '';
+            document.getElementById('arithmetic-output').innerHTML = '';
+            document.getElementById('people-output').innerHTML = '';
+            document.getElementById('person-output').innerHTML = '';
+            document.getElementById('console-output').innerHTML = '';
+        }
+
+        // Variables Demo - Using your exact code
+        function showVariablesDemo() {
+            // Variables
+            const name = "Jamby";
+            const age = 20;
+            const isStatus = true;
+
+            // Template literal (note the backticks)
+            const output = `Name: ${name}, Age: ${age}, Status: ${isStatus}`;
+            document.getElementById('variables-output').innerHTML = output;
+            
+            // Also log to console
+            logToConsole(`Variables Demo:\n${output}`);
+        }
+
+        // Arithmetic Demo - Using your exact code
+        function showArithmeticDemo() {
+            // Arithmetic operators
+            let x = 10;
+            let y = 5;
+            
+            const results = [
+                `This is Addition: ${x + y}`,
+                `This is Subtraction: ${x - y}`,
+                `This is Multiplication: ${x * y}`,
+                `This is Division: ${x / y}`
+            ];
+            
+            document.getElementById('arithmetic-output').innerHTML = results.join('<br>');
+            
+            // Also log to console - matching your console.log format
+            logToConsole('This is Addition: ' + (x + y));
+            logToConsole('This is Subtraction: ' + (x - y));
+            logToConsole('This is Multiplication: ' + (x * y));
+            logToConsole('This is Division: ' + (x / y));
+        }
+
+        // People Array Demo - Using your exact code
+        function showPeopleDemo() {
+            // Object literals array
+            const People = [
+              {
+                id: 1,
+                fullName: "Jamby",
+                age: 20,
+              },
+              {
+                id: 2,
+                fullName: "Angel",
+                age: 21,
+              },
+              {
+                id: 3,
+                fullName: "Irene",
+                age: 23,
+              }
+            ];
+            
+            let output = 'People Array (showing People[0]):<br>';
+            output += `ID: ${People[0].id}, Name: ${People[0].fullName}, Age: ${People[0].age}`;
+            
+            document.getElementById('people-output').innerHTML = output;
+            
+            // Also log to console - matching your console.log(People[0])
+            logToConsole(`People[0]:\n${JSON.stringify(People[0], null, 2)}`);
+        }
+
+        // Person Object Demo - Using your exact code
+        function showPersonDemo() {
+            // Object literal
+            const Person = {
+              fname: "Jamby",
+              lname: "Belotindos",
+              age: 21,
+              favorite: ["macaroni", "softdrinks", "anime"],
+              hobbies: {
+                ginadula: "HOK",
+                ginatanaw: "anime",
+                ginabuhat: "matulog",
+              }
+            };
+            
+            let output = 'Person Object:<br>';
+            output += `First Name: ${Person.fname}<br>`;
+            output += `Last Name: ${Person.lname}<br>`;
+            output += `Age: ${Person.age}<br>`;
+            output += `Favorites: ${Person.favorite.join(', ')}<br>`;
+            output += `Hobbies: ${JSON.stringify(Person.hobbies, null, 2)}<br>`;
+            
+            document.getElementById('person-output').innerHTML = output;
+            
+            // Also log to console - matching your console.log(Person)
+            logToConsole(`Person Object:\n${JSON.stringify(Person, null, 2)}`);
+        }
+
+        // Console logging function
+        function logToConsole(message) {
+            const consoleOutput = document.getElementById('console-output');
+            const timestamp = new Date().toLocaleTimeString();
+            consoleOutput.innerHTML += `[${timestamp}] ${message}\n\n`;
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }
+
+        // Clear console
+        function clearConsole() {
+            document.getElementById('console-output').innerHTML = '';
+        }
+
+        // Modal Toggle Functions
+        let isModalOpen = false;
+
+        function toggleButtonDemo() {
+            const modal = document.getElementById('button-demo-modal');
+            isModalOpen = !isModalOpen;
+            
+            if (isModalOpen) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                // Reset form when closing
+                document.getElementById('modal-contact-form').reset();
+            }
+        }
+
+        function showButtonDemo() {
+            toggleButtonDemo();
+        }
+
+        function closeButtonDemo() {
+            if (isModalOpen) {
+                toggleButtonDemo();
+            }
+        }
+
+        // Card Mini Modal Toggle
+        function toggleCardModal() {
+            const miniModal = document.getElementById('card-mini-modal');
+            const currentDisplay = miniModal.style.display;
+            
+            if (currentDisplay === 'none' || currentDisplay === '') {
+                miniModal.style.display = 'block';
+                miniModal.style.animation = 'fadeIn 0.3s ease';
+            } else {
+                miniModal.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => {
+                    miniModal.style.display = 'none';
+                }, 300);
+            }
+        }
+
+        // Handle Modal Form Submission
+        function handleModalFormSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Show success message
+            alert(`Thank you, ${name}! Your message has been received.\n\nEmail: ${email}\nMessage: ${message}`);
+            
+            // Close modal and reset form
+            toggleButtonDemo();
+        }
+
+        // Counter Functions
+        let clickCount = 0;
+
+        function incrementCounter() {
+            clickCount++;
+            const display = document.getElementById('click-counter-display');
+            display.textContent = clickCount;
+            
+            // Add animation effect
+            display.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                display.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        function resetCounter() {
+            clickCount = 0;
+            const display = document.getElementById('click-counter-display');
+            display.textContent = clickCount;
+            
+            // Add reset animation
+            display.style.transform = 'rotate(360deg)';
+            setTimeout(() => {
+                display.style.transform = 'rotate(0deg)';
+            }, 300);
+        }
+
+        // HTML Demo Functions
+        function showHtmlDemo() {
+            document.getElementById('html-demo-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeHtmlDemo() {
+            document.getElementById('html-demo-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Card Demo Functions for Live JavaScript Project - Using your exact code
+        function showVariablesInCard() {
+            // Variables
+            const name = "Jamby";
+            const age = 20;
+            const isStatus = true;
+            
+            // Template literal (note the backticks)
+            const output = `Name: ${name}, Age: ${age}, Status: ${isStatus}`;
+            document.getElementById('card-output').textContent = output;
+        }
+
+        function showMathInCard() {
+            // Arithmetic operators
+            let x = 10;
+            let y = 5;
+            const output = `This is Addition: ${x + y}\nThis is Subtraction: ${x - y}\nThis is Multiplication: ${x * y}\nThis is Division: ${x / y}`;
+            document.getElementById('card-output').textContent = output;
+        }
+
+        function showArrayInCard() {
+            // Object literals array
+            const People = [
+              {
+                id: 1,
+                fullName: "Jamby",
+                age: 20,
+              },
+              {
+                id: 2,
+                fullName: "Angel",
+                age: 21,
+              },
+              {
+                id: 3,
+                fullName: "Irene",
+                age: 23,
+              }
+            ];
+        
+
+            // Show People[0] as in your original code
+            const output = `People[0]:\nID: ${People[0].id}\nName: ${People[0].fullName}\nAge: ${People[0].age}`;
+            document.getElementById('card-output').textContent = output;
+        }
+
+        // Demo form handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const demoForm = document.getElementById('demo-form');
+            if (demoForm) {
+                demoForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(this);
+                    const name = formData.get('name');
+                    const email = formData.get('email');
+                    const message = formData.get('message');
+                    
+                    alert(`Demo Form Submitted!\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
+                    this.reset();
+                });
+            }
+
+            // Close modals when clicking outside
+            const buttonModal = document.getElementById('button-demo-modal');
+            if (buttonModal) {
+                buttonModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeButtonDemo();
+                    }
+                });
+            }
+
+            const javascriptModal = document.getElementById('javascript-demo-modal');
+            if (javascriptModal) {
+                javascriptModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeJavaScriptDemo();
+                    }
+                });
+            }
+
+            const htmlModal = document.getElementById('html-demo-modal');
+            if (htmlModal) {
+                htmlModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeHtmlDemo();
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Loading Screen Script -->
+    <script>
+        // Hide loading screen when page is fully loaded
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            setTimeout(function() {
+                loadingScreen.classList.add('hidden');
+            }, 1500); // Show loader for at least 1.5 seconds
+        });
+
+        // Comprehensive Scroll Animation Observer (Continuous)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add animation class when entering viewport
+                    entry.target.classList.add('animate-fadeInUp');
+                } else {
+                    // Remove animation class when leaving viewport
+                    entry.target.classList.remove('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and major elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observe all sections
+            const sections = document.querySelectorAll('section:not(#home)');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Observe all headings
+            const headings = document.querySelectorAll('h2, h3, h4');
+            headings.forEach((heading, index) => {
+                heading.style.animationDelay = `${index * 0.05}s`;
+                observer.observe(heading);
+            });
+
+            // Observe all cards
+            const cards = document.querySelectorAll('.magic-card, .flip-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            // Observe skill items
+            const skillItems = document.querySelectorAll('.bg-blue-100, .bg-green-100, .bg-purple-100, .bg-red-100, .bg-yellow-100, .bg-indigo-100, .bg-pink-100, .bg-orange-100');
+            skillItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.05}s`;
+                observer.observe(item);
+            });
+
+            // Observe paragraphs
+            const paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach((p, index) => {
+                if (!p.closest('.magic-card')) {
+                    p.style.animationDelay = `${index * 0.02}s`;
+                    observer.observe(p);
+                }
+            });
+
+            // Observe buttons
+            const buttons = document.querySelectorAll('.cta-button, .navbar-button, .shadow-send-button');
+            buttons.forEach((btn, index) => {
+                btn.style.animationDelay = `${index * 0.1}s`;
+                observer.observe(btn);
+            });
+
+            // Observe form inputs
+            const inputs = document.querySelectorAll('.custom-input');
+            inputs.forEach((input, index) => {
+                input.style.animationDelay = `${index * 0.1}s`;
+                observer.observe(input);
+            });
+
+            // Observe images
+            const images = document.querySelectorAll('img');
+            images.forEach((img, index) => {
+                img.style.animationDelay = `${index * 0.1}s`;
+                observer.observe(img);
+            });
+
+            // Observe contact info items
+            const contactItems = document.querySelectorAll('.flex.items-center.space-x-4');
+            contactItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.15}s`;
+                observer.observe(item);
+            });
+
+            // Add hover animations to interactive elements
+            const interactiveElements = document.querySelectorAll('button, a, .magic-card, .flip-card');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.transition = 'transform 0.6s ease';
+                });
+                el.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.transition = 'transform 0.6s ease';
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98c340e130edfedd',t:'MTc2MDA2OTI3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>

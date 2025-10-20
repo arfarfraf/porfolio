@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jamby Belotindos - Resume</title>
+
+  <!-- Boxicons for icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      background: url('https://i.pinimg.com/736x/b1/dc/1b/b1dc1bdb2e7b9f5ce5f2a938c0024b28.jpg') no-repeat center center/cover;
+      backdrop-filter: blur(3px);
+    }
+
+    .resume-container {
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      flex-wrap: wrap;
+      width: 900px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 50px 0;
+    }
+
+    .profile {
+      background: linear-gradient(135deg, #ff7b00, #ff4500);
+      color: white;
+      flex: 1 1 30%;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    .profile::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.2);
+      z-index: 0;
+    }
+
+    .profile * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .profile h1 {
+      margin: 10px 0 5px;
+      font-size: 1.8rem;
+    }
+
+    .profile h3 {
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .profile p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .content {
+      flex: 1 1 70%;
+      padding: 40px;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #ff4500;
+      border-bottom: 2px solid #ff4500;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.2rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skills span {
+      background: #ffe8d6;
+      color: #ff4500;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .projects img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 10px;
+      margin: 10px 10px 20px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .projects-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    /* Floating Button */
+    .floating-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #ff4500;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .floating-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+        margin: 0;
+        padding: 0;
+      }
+
+      .resume-container {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        background: white;
+      }
+
+      .floating-btn {
+        display: none !important;
+      }
+
+      .profile {
+        background: linear-gradient(135deg, #ff7b00, #ff4500);
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .profile::after {
+        display: none;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="resume-container">
+    <!-- Left Profile Section -->
+    <div class="profile">
+      <img src="Css/images/Mypic.jpg" alt="Jamby Belotindos" class="profile-img" />
+      
+      <h1>Jamby Belotindos</h1>
+      <h3>Web Developer & Designer</h3>
+      <p><i class="bx bx-map"></i> Bansalan, Davao del Sur, Philippines</p>
+      <p><i class="bx bx-envelope"></i> jambybelotindos@gmail.com</p>
+      <p><i class="bx bx-phone"></i> +63 945-826-5963</p>
+    </div>
+
+    <!-- Right Content Section -->
+    <div class="content">
+      <section>
+        <h2><i class="bx bx-user"></i> Profile</h2>
+        <p>
+          I am a passionate web developer and designer with strong skills in creating
+          responsive, user-friendly, and visually appealing websites. I enjoy
+          turning creative ideas into functional designs that deliver results.
+        </p>
+      </section>
+
+      <section>
+        <h2><i class="bx bx-book"></i> Education</h2>
+        <ul>
+          <li><b>Diploma in Information Technology</b> - Davao Del Sur State College (2025 - Present)</li>
+          <li><b>Senior High School</b> - Marber National High School (2022 - 2023)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><i class="bx bx-code-alt"></i> Skills</h2>
+        <div class="skills">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>Tailwind</span>
+          <span>UI Design</span>
+          <span>Canva</span>
+        </div>
+      </section>
+
+      <section class="projects">
+        <h2><i class="bx bx-briefcase"></i> Projects</h2>
+        <ul>
+          <li><b>Personal Portfolio Website</b> — A responsive online resume showcasing my skills and projects.</li>
+          <li><b>Arohas Gown Rental System</b> — A system project built to manage gown rentals efficiently.</li>
+          <li><b>Print on Demand Business Concept</b> — A creative entrepreneurial proposal for personalized designs.</li>
+        </ul>
+    </div>
+  </div>
+
+  <!-- Floating Button (Download or Contact) -->
+  <button class="floating-btn" title="Download Resume" onclick="downloadResume()">
+    <i class='bx bx-download'></i>
+  </button>
+
+  <script>
+    async function downloadResume() {
+      // Clone the document
+      const clone = document.cloneNode(true);
+      
+      // Find the profile image in the clone
+      const profileImg = clone.querySelector('.profile-img');
+      
+      if (profileImg && profileImg.src) {
+        try {
+          // Convert image to base64
+          const response = await fetch(profileImg.src);
+          const blob = await response.blob();
+          
+          // Create a FileReader to convert blob to base64
+          const reader = new FileReader();
+          reader.onloadend = function() {
+            // Replace image src with base64 data
+            profileImg.src = reader.result;
+            
+            // Get the modified HTML content
+            const resumeContent = clone.documentElement.outerHTML;
+            const htmlBlob = new Blob([resumeContent], { type: 'text/html' });
+            const url = URL.createObjectURL(htmlBlob);
+            
+            // Create temporary download link
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Jamby_Belotindos_Resume.html';
+            document.body.appendChild(a);
+            a.click();
+            
+            // Clean up
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+          };
+          reader.readAsDataURL(blob);
+        } catch (error) {
+          console.error('Error embedding image:', error);
+          // Fallback: download without embedded image
+          downloadWithoutImage(clone);
+        }
+      } else {
+        downloadWithoutImage(clone);
+      }
+    }
+    
+    function downloadWithoutImage(clone) {
+      const resumeContent = clone.documentElement.outerHTML;
+      const blob = new Blob([resumeContent], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Jamby_Belotindos_Resume.html';
+      document.body.appendChild(a);
+      a.click();
+      
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
